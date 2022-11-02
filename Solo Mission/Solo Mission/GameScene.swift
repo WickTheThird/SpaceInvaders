@@ -90,38 +90,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             body2 = contact.bodyB
 
         } else {
-            
+
             body1 = contact.bodyB
             body2 = contact.bodyA
-            
+
         }
-        
+
         // if the player has hit the enemy
         if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.Enemy {
-            
-            
+
+
             if body1.node != nil {
                 spawnExplosion(spawnPosition: body1.node!.position)
             }
             if body2.node != nil {
                 spawnExplosion(spawnPosition: body2.node!.position)
             }
-            
+
             body1.node?.removeFromParent()
             body2.node?.removeFromParent()
-            
+
         }
-        
+
         // if the bullet has hit the enemy
         if body1.categoryBitMask == PhysicsCategories.Bullet && body2.categoryBitMask == PhysicsCategories.Enemy && body2.node!.position.y > self.size.height {
             
             if body2.node != nil {
                 spawnExplosion(spawnPosition: body2.node!.position)
             }
-                
+
             body1.node?.removeFromParent()
             body2.node?.removeFromParent()
-            
+
         }
         
     }
