@@ -39,7 +39,7 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 100
+num_of_enemies = 10
 
 for i in range(num_of_enemies):
     enemy_i.append(pygame.image.load('monster.png'))
@@ -121,16 +121,16 @@ while ref == True:
             ref = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                playerX_change = -10
+                playerX_change = -2
                 jet_ready = True
             if event.key == pygame.K_UP:
-                playerY_change = -10
+                playerY_change = -2
                 jet_ready = True
             if event.key == pygame.K_RIGHT:
-                playerX_change = 10
+                playerX_change = 2
                 jet_ready = True
             if event.key == pygame.K_DOWN:
-                playerY_change = 10
+                playerY_change = 2
                 jet_ready = True
             if event.key == pygame.K_SPACE:
                 if bullet_state == "Ready!":
@@ -172,10 +172,10 @@ while ref == True:
         #enemy movement
         enemyX[i] += enemyX_change[i]
         if enemyX[i] > 800:
-            enemyX_change[i] = -10
+            enemyX_change[i] = -2
             enemyY[i] += 40
         elif enemyX[i] < -60:
-            enemyX_change[i] = 10
+            enemyX_change[i] = 2
             enemyY[i] += 40
         elif enemyY[i] > 600:
             enemyY[i] = 0
